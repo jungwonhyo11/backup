@@ -1,0 +1,539 @@
+{
+  "agency": {
+    "id": "jungwon",
+    "name": "JungWon Self-Improving AI Agency",
+    "version": "1.0.0",
+    "description": "Paperclip + Hermes + Ganma4 + Kimi K3 기반 자기발전형 AI 에이전시",
+    "author": "User",
+    "status": "Active"
+  },
+  "default_company_id": "0edd5dab-bd43-411f-b120-d72ccf9686a0",
+  "core_systems": {
+    "paperclip": {
+      "enabled": true,
+      "base_url": "http://127.0.0.1:3100",
+      "api_prefix": "/api",
+      "mode": "local_trusted"
+    },
+    "hermes": {
+      "enabled": true,
+      "platform": "telegram",
+      "bridge_mode": "auto",
+      "adapter_type": "hermes_agent_v2",
+      "version": "2.0.0",
+      "features": [
+        "SOUL_v2",
+        "multi_llm_failover",
+        "memory_rag",
+        "capcut_auto"
+      ]
+    },
+    "ganma4": {
+      "enabled": true,
+      "sub_language": true,
+      "model": "gemma4:e4b",
+      "base_url": "http://127.0.0.1:11434",
+      "context_window": 8192,
+      "capabilities": [
+        "reasoning",
+        "code_generation",
+        "analysis",
+        "Korean_native"
+      ]
+    },
+    "kimi_k3": {
+      "enabled": true,
+      "model": "kimi-k3",
+      "provider": "moonshot",
+      "api_url": "https://api.moonshot.cn/v1",
+      "api_key_env": "KIMI_API_KEY",
+      "context_window": 128000,
+      "capabilities": [
+        "deep_reasoning",
+        "long_context",
+        "analysis",
+        "Korean_native",
+        "code_generation"
+      ]
+    },
+    "nvidia_nemotron": {
+      "enabled": true,
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "provider": "nvidia_build",
+      "api_url": "https://integrate.api.nvidia.com/v1",
+      "api_key_env": "NVIDIA_API_KEY",
+      "context_window": 128000,
+      "capabilities": [
+        "ultra_high_reasoning",
+        "flagship_ai",
+        "architecture_planning",
+        "Korean_native",
+        "code_generation"
+      ]
+    },
+    "autonomous_brain": {
+      "enabled": true,
+      "module": "autonomous_strategic_brain.py",
+      "auto_dispatch": true
+    },
+    "smart_router": {
+      "enabled": true,
+      "module": "smart_llm_router.py",
+      "failover_mode": "adaptive",
+      "default_preference": "auto",
+      "routing_strategy": "triple_hybrid_nvidia_nemotron_kimi_k3_ganma4"
+    },
+    "multi_agent_critic": {
+      "enabled": true,
+      "module": "multi_agent_critic.py",
+      "quality_threshold": 80
+    },
+    "dynamic_skill_synthesizer": {
+      "enabled": true,
+      "module": "dynamic_skill_synthesizer.py",
+      "auto_load": true
+    },
+    "capcut_editor": {
+      "enabled": true,
+      "module": "capcut_automation.py",
+      "engine": "vibecut",
+      "auto_subtitles": true,
+      "silence_cut": true
+    }
+  },
+  "roles": [
+    {
+      "id": "ceo",
+      "title": "Chief Executive Officer",
+      "description": "최고경영자 - 에이전시 전략 및 의사결정",
+      "capabilities": [
+        "strategic_planning",
+        "decision_making",
+        "team_coordination"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "paperclip_api",
+        "ganma4_reasoning",
+        "task_dispatcher"
+      ]
+    },
+    {
+      "id": "research_manager",
+      "title": "Research & Analysis Manager",
+      "description": "연구/분석 매매저 - 시장조사 및 데이터 분석",
+      "capabilities": [
+        "market_research",
+        "data_analysis",
+        "trend_analysis"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "web_search",
+        "ganma4_analysis",
+        "paperclip_storage"
+      ]
+    },
+    {
+      "id": "content_creator",
+      "title": "Content Creator & Video Editor",
+      "description": "콘텐츠 크리에이터 - 블로그, 비디오 생성, CapCut 자동 편집",
+      "capabilities": [
+        "blog_writing",
+        "seo_optimization",
+        "content_scheduling",
+        "capcut_video_editing"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "ganma4_generation",
+        "seo_analyzer",
+        "scheduler",
+        "youtube_uploader",
+        "capcut_auto_edit",
+        "capcut_subtitles"
+      ]
+    },
+    {
+      "id": "code_engineer",
+      "title": "Code Engineer",
+      "description": "코드 엔지니어 - 자동화 스크립트 및 API 개발",
+      "capabilities": [
+        "code_generation",
+        "testing",
+        "deployment"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "ganma4_coding",
+        "git_integration",
+        "ci_cd"
+      ]
+    },
+    {
+      "id": "learning_system",
+      "title": "Learning & Self-Improvement",
+      "description": "학습/자기발전 시스템 - 성과 추적 및 최적화",
+      "capabilities": [
+        "performance_tracking",
+        "optimization",
+        "knowledge_accumulation"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "metrics_analyzer",
+        "knowledge_base",
+        "adaptive_planning"
+      ]
+    },
+    {
+      "id": "s4_sns_manager",
+      "title": "S4 Blog & SNS Manager",
+      "description": "블로그·SNS 에이전시 (다국어 SEO 및 소셜 자동 초안 발행)",
+      "capabilities": [
+        "seo_blog",
+        "sns_management",
+        "multilingual_publishing"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "ganma4_generation",
+        "sns_api_integration",
+        "translator"
+      ]
+    },
+    {
+      "id": "s5_shorts_director",
+      "title": "S5 Shorts Studio Director",
+      "description": "숏폼 모션그래픽 에이전시 (블로그 30초 숏폼 자동 변환)",
+      "capabilities": [
+        "scenario_writing",
+        "motion_graphics",
+        "video_editing",
+        "voice_directing",
+        "design_extraction"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "video_generator",
+        "voice_synthesizer",
+        "script_converter",
+        "designlang_cli",
+        "mcp_designlang",
+        "youtube_uploader"
+      ]
+    },
+    {
+      "id": "s6_data_marketer",
+      "title": "S6 Data & Marketing Strategist",
+      "description": "데이터 분석 및 마케팅 전략 수립 (Codex BI 대시보드 자동화)",
+      "capabilities": [
+        "market_analysis",
+        "bi_dashboard",
+        "marketing_strategy"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "codex_subagent",
+        "vercel_deploy",
+        "slack_webhook",
+        "data_analyzer"
+      ]
+    },
+    {
+      "id": "s7_asset_manager",
+      "title": "S7 Asset Management Planner",
+      "description": "자산관리 에이전시 (자동매매, 부동산, 금융 분석)",
+      "capabilities": [
+        "auto_trading",
+        "crypto_analysis",
+        "financial_modeling",
+        "real_estate"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "kiwoom_api",
+        "upbit_api",
+        "financial_modeler"
+      ]
+    },
+    {
+      "id": "s9_integrated_hq",
+      "title": "S9 Integrated HQ Coordinator",
+      "description": "통합 본부 (전체 에이전시 조율 및 글로벌 관리)",
+      "capabilities": [
+        "enterprise_coordination",
+        "global_strategy",
+        "resource_allocation"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "agency_dashboard",
+        "cross_agency_communication",
+        "okr_tracker"
+      ]
+    },
+    {
+      "id": "copywriter_specialist",
+      "title": "Copywriting & Tone Specialist",
+      "description": "카피라이팅 전문가 - 콘텐츠 톤앤매너 설정 및 고품질 원고 초안 작성",
+      "capabilities": [
+        "creative_writing",
+        "tone_adjustment",
+        "draft_refinement"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "ganma4_generation",
+        "dictionary_lookup"
+      ]
+    },
+    {
+      "id": "seo_auditor",
+      "title": "SEO Auditor & Analyst",
+      "description": "SEO 감사관 - 키워드 경쟁력 분석, 가독성 평가 및 메타데이터 최적화",
+      "capabilities": [
+        "seo_audit",
+        "keyword_research",
+        "readability_check"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "seo_analyzer",
+        "web_search"
+      ]
+    },
+    {
+      "id": "storyboard_designer",
+      "title": "Shorts Storyboard Designer",
+      "description": "숏폼 스토리보드 설계사 - 스크립트를 화면 씬(Scene) 단위로 연출 분할 및 자막 매핑",
+      "capabilities": [
+        "storyboarding",
+        "scene_direction",
+        "caption_mapping"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "script_converter",
+        "ganma4_analysis"
+      ]
+    },
+    {
+      "id": "voice_actor_director",
+      "title": "Voice Synthesizer & Audio Director",
+      "description": "오디오 디렉터 - 음성 목소리 톤 선택, 대사 타이밍 조절 및 음성 합성 최적화",
+      "capabilities": [
+        "voice_directing",
+        "audio_pacing",
+        "tts_optimization"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "voice_synthesizer"
+      ]
+    },
+    {
+      "id": "code_architect",
+      "title": "Code Architect & System Designer",
+      "description": "시스템 설계사 - API 라우팅, 데이터베이스 스키마 및 마이크로서비스 설계",
+      "capabilities": [
+        "system_architecture",
+        "api_design",
+        "database_modeling"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "ganma4_coding",
+        "designlang_cli"
+      ]
+    },
+    {
+      "id": "security_qa_engineer",
+      "title": "Security & Quality Assurance Engineer",
+      "description": "QA/보안 엔지니어 - 기능 테스트, 경계 조건 검증 및 잠재적 취약점 보안 감사",
+      "capabilities": [
+        "unit_testing",
+        "integration_testing",
+        "security_audit",
+        "vulnerability_scan"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "ganma4_coding",
+        "ci_cd",
+        "vulnerability_scanner"
+      ]
+    },
+    {
+      "id": "open_design_director",
+      "title": "Chief Design Officer & Open-Design Director",
+      "description": "오픈디자인 총괄 디렉터 - open-design 엔진 기반 DESIGN.md 설계, UI/UX 프로토타입 생성",
+      "capabilities": [
+        "open_design_synthesis",
+        "ui_ux_prototyping",
+        "design_system_generation",
+        "vibe_design_rendering",
+        "multi_format_export"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "open_design_engine",
+        "multi_engine_image",
+        "capcut_auto_edit",
+        "designlang_cli"
+      ]
+    },
+    {
+      "id": "moa_ensemble_director",
+      "title": "Chief MoA Synthesizer Director",
+      "description": "MoA 다중 모델 앙상블 총괄 디렉터 - Nemotron 550B, Kimi K3, Ganma4 병렬 질의 및 Layer-2 합성",
+      "capabilities": [
+        "multi_model_ensemble",
+        "layer2_synthesis",
+        "consensus_reasoning"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "mixture_of_agents_engine",
+        "smart_llm_router"
+      ]
+    },
+    {
+      "id": "lead_generation_specialist",
+      "title": "B2B Lead Gen & Sales Director",
+      "description": "B2B 리드 발굴 및 세일즈 디렉터 - 산업군 기업 리드 추출, 점수화 및 맞춤형 사업 제안서 작성",
+      "capabilities": [
+        "lead_prospecting",
+        "lead_scoring",
+        "b2b_sales_outreach",
+        "proposal_drafting"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "ai_lead_generation_agent",
+        "web_search"
+      ]
+    },
+    {
+      "id": "podcast_producer_director",
+      "title": "Audio Broadcast & Podcast Director",
+      "description": "팟캐스트 및 오디오 디렉터 - 블로그/보고서를 2인 대화 팟캐스트 오디오 스크립트로 자동 변환",
+      "capabilities": [
+        "blog_to_podcast",
+        "script_dialogue",
+        "audio_broadcasting"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "ai_blog_to_podcast_engine",
+        "voice_synthesizer"
+      ]
+    },
+    {
+      "id": "financial_deep_analyst",
+      "title": "Deep Financial & Crypto Analyst",
+      "description": "금융 딥 분석관 - 기업 재무제표, 주가, 암호화폐 감성 분석 및 리스크 평가",
+      "capabilities": [
+        "financial_modeling",
+        "risk_assessment",
+        "crypto_sentiment",
+        "investment_thesis"
+      ],
+      "adapter": "hermes_local",
+      "tools": [
+        "ai_financial_deep_analyst",
+        "web_search"
+      ]
+    }
+  ],
+  "self_improvement": {
+    "enabled": true,
+    "feedback_loop_interval": 300,
+    "metrics": [
+      "task_completion_rate",
+      "output_quality",
+      "user_satisfaction",
+      "response_time",
+      "error_rate"
+    ],
+    "adaptation_strategies": [
+      "prompt_optimization",
+      "tool_selection_refinement",
+      "role_specialization",
+      "knowledge_base_expansion"
+    ]
+  },
+  "extensions": [
+    {
+      "id": "ext-seo",
+      "enabled": true,
+      "integration": "content_creator"
+    },
+    {
+      "id": "ext-youtube",
+      "enabled": true,
+      "integration": "content_creator"
+    },
+    {
+      "id": "ext-venture",
+      "enabled": true,
+      "integration": "research_manager"
+    },
+    {
+      "id": "ext-s4-sns",
+      "enabled": true,
+      "integration": "s4_sns_manager"
+    },
+    {
+      "id": "ext-s5-shorts",
+      "enabled": true,
+      "integration": "s5_shorts_director"
+    },
+    {
+      "id": "ext-s6-data",
+      "enabled": true,
+      "integration": "s6_data_marketer"
+    },
+    {
+      "id": "ext-s7-assets",
+      "enabled": true,
+      "integration": "s7_asset_manager"
+    },
+    {
+      "id": "ext-s9-hq",
+      "enabled": true,
+      "integration": "s9_integrated_hq"
+    },
+    {
+      "id": "ext-open-design",
+      "enabled": true,
+      "integration": "open_design_director"
+    },
+    {
+      "id": "ext-moa",
+      "enabled": true,
+      "integration": "moa_ensemble_director"
+    },
+    {
+      "id": "ext-lead-gen",
+      "enabled": true,
+      "integration": "lead_generation_specialist"
+    },
+    {
+      "id": "ext-podcast",
+      "enabled": true,
+      "integration": "podcast_producer_director"
+    },
+    {
+      "id": "ext-finance-deep",
+      "enabled": true,
+      "integration": "financial_deep_analyst"
+    }
+  ],
+  "data_persistence": {
+    "storage": "local_database",
+    "backup_enabled": true,
+    "backup_interval": 3600,
+    "history_retention": 30
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "timestamp": "20260716_182049",
+  "datetime": "2026-07-16 18:20:54",
+  "success": false,
+  "file_count": 1154,
+  "message": "GitHub 동기화 실패 - 인증 확인 필요",
+  "backup_source": "C:\\heresai",
+  "github_target": "https://github.com/jungwonhyo11/backup.git"
+}

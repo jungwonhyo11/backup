@@ -1,0 +1,26 @@
+{
+  "timestamp": "20260615_141100",
+  "backup_source": "l:\\내컴푸터d드라이브다운로드작업\\DATA\\다운로드\\[안전폴더]paperclip-company-factory-main",
+  "engine": "gemma4:31b (Ollama local)",
+  "server": "http://127.0.0.1:3100",
+  "github_backup": "https://github.com/jungwonhyo11/backup.git",
+  "log_files": [
+    "server_monitor.log",
+    ".paperclip.log",
+    "guardian.log",
+    "paperclip_engine.log",
+    "jungwon_agency.log",
+    "paperclip_engine_live.log",
+    "server_guardian_console.log",
+    "jungwon_ai_server_console.log",
+    "jungwon_agency_console.log",
+    "test_launch_err.log",
+    "dajura_loop_console.log",
+    "auto_backup_console.log",
+    "test_launch.log",
+    "jungwon_agency_loop_console.log",
+    "telegram_bot_error.log",
+    "server_monitor.log",
+    "server_guardian_console.log"
+  ]
+}

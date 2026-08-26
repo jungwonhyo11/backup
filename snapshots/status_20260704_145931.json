@@ -1,0 +1,28 @@
+{
+  "timestamp": "20260704_145931",
+  "backup_source": "C:\\heresai",
+  "engine": "gemma4:31b (Ollama local)",
+  "server": "http://127.0.0.1:3100",
+  "github_backup": "https://github.com/jungwonhyo11/backup.git",
+  "log_files": [
+    ".paperclip.log",
+    "auto_backup_console.log",
+    "dajura_loop_console.log",
+    "guardian.log",
+    "jarvis_run.log",
+    "jungwon_agency.log",
+    "jungwon_agency_console.log",
+    "jungwon_agency_loop_console.log",
+    "jungwon_ai_server_console.log",
+    "paperclip_engine.log",
+    "paperclip_engine_live.log",
+    "server_guardian_console.log",
+    "server_monitor.log",
+    "telegram_bot_console.log",
+    "telegram_bot_error.log",
+    "test_launch.log",
+    "test_launch_err.log",
+    "server_guardian_console.log",
+    "server_monitor.log"
+  ]
+}

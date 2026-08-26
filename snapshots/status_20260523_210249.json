@@ -1,0 +1,12 @@
+{
+  "timestamp": "20260523_210249",
+  "backup_source": "L:\\내컴푸터d드라이브다운로드작업\\DATA\\다운로드\\[안전폴더]paperclip-company-factory-main",
+  "engine": "gemma4:31b (Ollama local)",
+  "server": "http://127.0.0.1:3100",
+  "github_backup": "https://github.com/jungwonhyo11/backup.git",
+  "log_files": [
+    "server_monitor.log",
+    ".paperclip.log",
+    "server_monitor.log"
+  ]
+}

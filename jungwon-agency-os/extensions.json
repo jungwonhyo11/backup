@@ -1,0 +1,90 @@
+[
+  {
+    "id": "jungwon-agency",
+    "name": "JungWon Self-Improving AI Agency",
+    "version": "1.0.0",
+    "status": "Active",
+    "description": "Paperclip + Hermes + Ganma4 기반 자기발전형 AI 에이전시",
+    "type": "agency",
+    "config_file": "jungwon-agency-config.json",
+    "main": "index.html",
+    "assets": [
+      "index.html",
+      "style.css",
+      "app.js",
+      "jungwon-agency-dashboard.js",
+      "jungwon-agency-config.json"
+    ],
+    "features": [
+      "self_improvement_loop",
+      "multi_agent_coordination",
+      "local_language_processing",
+      "auto_knowledge_accumulation",
+      "adaptive_task_planning"
+    ]
+  },
+  {
+    "id": "ext-seo",
+    "name": "SEO 및 콘텐츠 자동화",
+    "version": "1.0.2",
+    "status": "Installed",
+    "description": "구글 검색 결과 분석 및 블로그 자동 포스팅 스킬",
+    "linked_agency": "jungwon-agency"
+  },
+  {
+    "id": "ext-youtube",
+    "name": "유튜브 쇼츠 프로듀서",
+    "version": "2.1.0",
+    "status": "Active",
+    "description": "Gemma 4 기반 고해상도 영상 기획 및 스크립트 작성",
+    "linked_agency": "jungwon-agency"
+  },
+  {
+    "id": "ext-venture",
+    "name": "글로벌 벤처 빌더",
+    "version": "0.9.0",
+    "status": "Available",
+    "description": "해외 비즈니스 영문 서신 및 시장 조사 전문 에이전트",
+    "linked_agency": "jungwon-agency"
+  },
+  {
+    "id": "ext-open-design",
+    "name": "Open-Design AI UI/UX Studio Engine",
+    "version": "1.0.0",
+    "status": "Active",
+    "description": "nexu-io/open-design 기반 agent-native 디자인 시스템 (DESIGN.md) 및 반응형 UI/UX 프로토타입 자동 생성기",
+    "linked_agency": "jungwon-agency"
+  },
+  {
+    "id": "ext-moa",
+    "name": "Mixture of Agents (MoA) Ensemble Studio",
+    "version": "1.0.0",
+    "status": "Active",
+    "description": "Nvidia Nemotron 550B, Kimi K3, Ganma4 3개 LLM 모델 동시 병렬 앙상블 및 Layer-2 합성 엔진",
+    "linked_agency": "jungwon-agency"
+  },
+  {
+    "id": "ext-lead-gen",
+    "name": "B2B AI Lead Gen & Sales Outreach Agent",
+    "version": "1.0.0",
+    "status": "Active",
+    "description": "타겟 산업군 B2B 세일즈 리드 추출, 점수화 및 맞춤형 사업 제안서 자동 생성 스킬",
+    "linked_agency": "jungwon-agency"
+  },
+  {
+    "id": "ext-podcast",
+    "name": "AI Blog-to-Podcast Audio Producer",
+    "version": "1.0.0",
+    "status": "Active",
+    "description": "블로그/에이전시 리포트를 2인(Host + Expert) 대화형 팟캐스트 오디오 스크립트로 자동 변환 엔진",
+    "linked_agency": "jungwon-agency"
+  },
+  {
+    "id": "ext-finance-deep",
+    "name": "Deep Financial & Crypto Analyst Agent",
+    "version": "1.0.0",
+    "status": "Active",
+    "description": "기업 재무제표 딥 모델링, 주가 감성 분석 및 암호화폐 리스크 평가 보고서 생성기",
+    "linked_agency": "jungwon-agency"
+  }
+]

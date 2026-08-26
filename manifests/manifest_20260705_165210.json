@@ -1,0 +1,9 @@
+{
+  "timestamp": "20260705_165210",
+  "datetime": "2026-07-05 16:52:17",
+  "success": true,
+  "file_count": 1106,
+  "message": "GitHub 동기화 완료",
+  "backup_source": "C:\\heresai",
+  "github_target": "https://github.com/jungwonhyo11/backup.git"
+}

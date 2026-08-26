@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Network - JUNGWON OS</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .network-container {
+      position: relative;
+      background: radial-gradient(circle at center, #1a1c2c 0%, #0a0b10 100%);
+      height: 600px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--accent);
+      margin-top: 20px;
+    }
+
+    .pixel-character {
+      position: absolute;
+      width: 40px;
+      height: 48px;
+      cursor: pointer;
+      image-rendering: pixelated;
+      transition: all 0.3s;
+      filter: drop-shadow(0 0 5px var(--accent-glow));
+    }
+
+    .pixel-character:hover {
+      transform: scale(1.2);
+    }
+
+    /* CSS 8-bit Character Mockup (Sprite visualization) */
+    .char-sprite {
+      width: 32px;
+      height: 32px;
+      background-size: cover;
+      /* Using a placeholder for pixel art logic */
+      background: #3b82f6; 
+      box-shadow: 
+        4px 0px 0 0 #000,
+        -4px 0px 0 0 #000,
+        0px 4px 0 0 #000,
+        0px -4px 0 0 #000,
+        0 8px 0 0 #3b82f6,
+        8px 8px 0 0 #000,
+        -8px 8px 0 0 #000;
+    }
+
+    .node-label {
+      position: absolute;
+      top: 55px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.8);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      white-space: nowrap;
+      border: 1px solid var(--border);
+      color: #fff;
+    }
+
+    .knowledge-details {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--panel);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .link-line {
+      position: absolute;
+      background: var(--accent);
+      height: 1px;
+      opacity: 0.3;
+      transform-origin: left center;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-logo">JUNGWON OS</div>
+    <nav>
+      <a href="index.html">📊 Dashboard</a>
+      <a href="knowledge.html" class="active">🌐 지식네트워크</a>
+      <a href="#">🤖 Agents</a>
+      <a href="#">⚙️ Settings</a>
+    </nav>
+  </div>
+
+  <div class="main-content">
+    <header>
+      <div class="logo">KNOWLEDGE NETWORK COMMANDER</div>
+      <div class="status-badge">
+        <div class="status-dot"></div>
+        <span>Network Synced (Obsidian)</span>
+      </div>
+    </header>
+
+    <section class="network-container" id="network-view">
+      <div style="padding: 2rem; text-align: center; color: var(--text-dim);">
+        <p>옵시디안의 지식 데이터를 8비트 캐릭터 네트워크로 시각화합니다.</p>
+      </div>
+      <!-- Characters will be injected here via JS -->
+    </section>
+
+    <section class="knowledge-details" id="details-view">
+      <h3>🔍 지식 상세 정보</h3>
+      <p style="color: var(--text-dim);">캐릭터를 클릭하여 옵시디안 문서 내용을 확인하세요.</p>
+    </section>
+  </div>
+
+  <script>
+    const nodes = [
+      { name: "비즈니스 전략", x: 200, y: 150, color: "#3b82f6", content: "Obsidian: /Strategy/Business_Plan.md - AI 에이전시 성장 로드맵 포함." },
+      { name: "Gemma 4 최적화", x: 400, y: 200, color: "#10b981", content: "Obsidian: /Technical/Gemma4_Guide.md - 로컬 추론 성능 극대화 설정." },
+      { name: "Global Marketing", x: 600, y: 100, color: "#ef4444", content: "Obsidian: /Market/Global_Expansion.md - 해외 시장 진출을 위한 SNS 전략." },
+      { name: "Hermes Loop", x: 150, y: 400, color: "#8b5cf6", content: "Obsidian: /AI/Hermes_Loop.md - 자가 학습 루프 및 스킬 합성 프로세스." },
+      { name: "Finance Manager", x: 500, y: 450, color: "#f59e0b", content: "Obsidian: /Finance/Budget_2026.md - 에이전시 운영 자금 및 수익배분 구조." }
+    ];
+
+    const view = document.getElementById('network-view');
+
+    nodes.forEach(node => {
+      const char = document.createElement('div');
+      char.className = 'pixel-character';
+      char.style.left = node.x + 'px';
+      char.style.top = node.y + 'px';
+      
+      char.innerHTML = `
+        <div class="char-sprite" style="background: ${node.color}; box-shadow: 0 0 15px ${node.color}88;"></div>
+        <div class="node-label">${node.name}</div>
+      `;
+
+      char.addEventListener('click', () => {
+        document.getElementById('details-view').innerHTML = `
+          <h3>🔍 ${node.name}</h3>
+          <p style="margin-top:1rem; color: #fff;">${node.content}</p>
+          <button class="btn" style="margin-top:1.5rem; font-size:0.8rem;">옵시디안에서 열기</button>
+        `;
+      });
+
+      view.appendChild(char);
+    });
+
+    // Draw lines (Simple representation)
+    for(let i=0; i<nodes.length; i++) {
+        for(let j=i+1; j<nodes.length; j++) {
+            if(Math.random() > 0.6) {
+                const line = document.createElement('div');
+                line.className = 'link-line';
+                const dx = nodes[j].x - nodes[i].x;
+                const dy = nodes[j].y - nodes[i].y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+                line.style.width = dist + 'px';
+                line.style.left = (nodes[i].x + 20) + 'px';
+                line.style.top = (nodes[i].y + 20) + 'px';
+                line.style.transform = `rotate(${angle}deg)`;
+                view.appendChild(line);
+            }
+        }
+    }
+  </script>
+</body>
+</html>
